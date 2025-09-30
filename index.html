@@ -1,0 +1,1117 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Comparaison des régimes totalitaires</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      /* Professional dark theme with subtle academic colors */
+      background: 
+        linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #141414 50%, #1a1a1a 75%, #0f0f0f 100%),
+        radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(25, 25, 112, 0.06) 0%, transparent 50%);
+      background-size: 400% 400%, 100% 100%, 100% 100%;
+      animation: subtleShift 30s ease infinite;
+      color: #e8e8e8;
+      line-height: 1.6;
+      overflow-x: hidden;
+      /* Simple professional cursor */
+      cursor: default;
+      position: relative;
+    }
+
+    /* Subtle professional background animation */
+    @keyframes subtleShift {
+      0%, 100% { background-position: 0% 50%, 0% 0%, 100% 100%; }
+      50% { background-position: 100% 50%, 50% 50%, 0% 0%; }
+    }
+
+    /* Removed flashy particles, added subtle academic texture */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, rgba(139, 69, 19, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(139, 69, 19, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Removed custom cursor effects for professional look */
+    
+    /* Modern header with professional styling */
+    header {
+      padding: 20px 0;
+      /* Professional header with academic colors */
+      background: 
+        linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(35, 35, 35, 0.9) 100%),
+        linear-gradient(45deg, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+      border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(15px) saturate(150%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+    
+    .header-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    header h1 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      /* Professional title with academic colors */
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 50%, #c0c0c0 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: subtleTextShimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes subtleTextShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+    
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+    
+    nav a {
+      color: #d1d1d1;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 10px 18px;
+      border-radius: 6px;
+      /* Professional hover transitions */
+      transition: all 0.3s ease;
+      position: relative;
+      border: 1px solid transparent;
+    }
+    
+    nav a:hover {
+      color: #d2b48c;
+      background: rgba(139, 69, 19, 0.15);
+      border-color: rgba(139, 69, 19, 0.3);
+      transform: translateY(-1px);
+    }
+    
+    /* Modern main container */
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+    }
+    
+    /* Hero section with professional design */
+    .hero {
+      padding: 60px 0;
+      text-align: center;
+      /* Professional hero background */
+      background: 
+        radial-gradient(ellipse at center, rgba(139, 69, 19, 0.08) 0%, transparent 70%),
+        radial-gradient(ellipse at 80% 20%, rgba(25, 25, 112, 0.05) 0%, transparent 50%);
+      position: relative;
+    }
+    
+    .hero h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      /* Professional gradient with academic colors */
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 30%, #8b4513 70%, #c0c0c0 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      animation: professionalGlow 10s ease-in-out infinite;
+    }
+
+    @keyframes professionalGlow {
+      0%, 100% { 
+        background-position: 0% 50%;
+        filter: brightness(1);
+      }
+      50% { 
+        background-position: 100% 50%;
+        filter: brightness(1.1);
+      }
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-weight: 300;
+    }
+    
+    /* Modern section styling */
+    section {
+      margin-bottom: 100px;
+    }
+    
+    .section-header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-header h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      color: #f0f0f0;
+      /* Professional section title */
+      text-shadow: 0 2px 10px rgba(139, 69, 19, 0.2);
+    }
+    
+    .section-header p {
+      font-size: 1.1rem;
+      color: #a8a8a8;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    
+    /* Professional table design */
+    .table-container {
+      /* Professional glass morphism background */
+      background: 
+        linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(35, 35, 35, 0.9) 100%),
+        linear-gradient(45deg, rgba(139, 69, 19, 0.05) 0%, rgba(25, 25, 112, 0.03) 100%);
+      border-radius: 12px;
+      padding: 32px;
+      border: 1px solid rgba(139, 69, 19, 0.2);
+      /* Professional shadow */
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(139, 69, 19, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(15px) saturate(150%);
+    }
+
+    /* Adding futuristic interactive controls */
+    .table-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-container {
+      position: relative;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 12px 16px 12px 44px;
+      /* Professional input styling */
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(139, 69, 19, 0.3);
+      border-radius: 6px;
+      color: #f0f0f0;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #d2b48c;
+      box-shadow: 0 0 15px rgba(139, 69, 19, 0.3);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #999;
+      font-size: 16px;
+    }
+
+    .filter-buttons {
+      display: flex;
+      gap: 8px;
+    }
+
+    .filter-btn {
+      padding: 10px 18px;
+      /* Professional button styling */
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(139, 69, 19, 0.3);
+      border-radius: 6px;
+      color: #d1d1d1;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      font-weight: 500;
+    }
+
+    .filter-btn:hover {
+      background: rgba(139, 69, 19, 0.15);
+      border-color: #d2b48c;
+      color: #d2b48c;
+      transform: translateY(-1px);
+    }
+
+    .filter-btn.active {
+      /* Professional active state */
+      background: linear-gradient(135deg, #8b4513, #a0522d);
+      border-color: #d2b48c;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(139, 69, 19, 0.4);
+    }
+
+    .futuristic-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      /* Professional table background */
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.03) 0%, rgba(25, 25, 112, 0.02) 100%);
+    }
+
+    .futuristic-table::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 49%, rgba(139, 69, 19, 0.05) 50%, transparent 51%);
+      background-size: 20px 20px;
+      opacity: 0.2;
+      pointer-events: none;
+      animation: gridMove 25s linear infinite;
+    }
+
+    @keyframes gridMove {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(20px, 20px); }
+    }
+
+    .futuristic-table th {
+      /* Professional header styling */
+      background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+      padding: 18px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 1rem;
+      color: #f0f0f0;
+      border-bottom: 2px solid #8b4513;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .futuristic-table th:hover {
+      background: linear-gradient(135deg, #3a3a3a 0%, #4a4a4a 100%);
+      color: #d2b48c;
+    }
+
+    .futuristic-table th::after {
+      content: '⇅';
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.6;
+      font-size: 0.8rem;
+      transition: all 0.3s ease;
+    }
+
+    .futuristic-table th:hover::after {
+      opacity: 1;
+      color: #d2b48c;
+    }
+
+    .futuristic-table th:first-child {
+      width: 20%;
+    }
+
+    .futuristic-table td {
+      padding: 20px 18px;
+      border-bottom: 1px solid rgba(139, 69, 19, 0.2);
+      vertical-align: top;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      position: relative;
+      transition: all 0.3s ease;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .futuristic-table tr:nth-child(even) td {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .futuristic-table tr:hover td {
+      /* Completely removed blue gradient and replaced with ultra-modern dark professional effect */
+      background: linear-gradient(135deg, 
+        rgba(45, 45, 45, 0.98) 0%, 
+        rgba(55, 55, 55, 0.95) 30%,
+        rgba(60, 60, 60, 0.92) 70%,
+        rgba(45, 45, 45, 0.98) 100%) !important;
+      transform: translateY(-3px) scale(1.002);
+      box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.8),
+        0 0 40px rgba(139, 69, 19, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15),
+        inset 0 -1px 0 rgba(139, 69, 19, 0.3);
+      border-left: 4px solid #d2b48c;
+      border-right: 2px solid rgba(139, 69, 19, 0.4);
+      position: relative;
+      backdrop-filter: blur(8px) saturate(120%);
+    }
+
+    .futuristic-table tr:hover td::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Ultra-modern scan effect with golden academic colors */
+      background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(210, 180, 140, 0.08) 15%, 
+        rgba(210, 180, 140, 0.15) 30%,
+        rgba(255, 215, 0, 0.12) 50%, 
+        rgba(210, 180, 140, 0.15) 70%,
+        rgba(210, 180, 140, 0.08) 85%, 
+        transparent 100%);
+      animation: ultraModernScan 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ultra-modern scan animation */
+    @keyframes ultraModernScan {
+      0% { 
+        opacity: 0; 
+        transform: translateX(-100%) skewX(-15deg); 
+        filter: blur(2px);
+      }
+      30% { 
+        opacity: 0.8; 
+        transform: translateX(-20%) skewX(-10deg); 
+        filter: blur(1px);
+      }
+      70% { 
+        opacity: 1; 
+        transform: translateX(20%) skewX(-5deg); 
+        filter: blur(0px);
+      }
+      100% { 
+        opacity: 0; 
+        transform: translateX(120%) skewX(0deg); 
+        filter: blur(2px);
+      }
+    }
+
+    .futuristic-table tr:hover td:first-child {
+      /* Ultra-modern text highlighting with golden academic glow */
+      color: #ffd700;
+      font-weight: 700;
+      text-shadow: 
+        0 0 8px rgba(255, 215, 0, 0.4),
+        0 2px 4px rgba(139, 69, 19, 0.6),
+        0 0 15px rgba(210, 180, 140, 0.3);
+      letter-spacing: 0.5px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Ultra-modern hover glow effect for the entire row */
+    .futuristic-table tr:hover {
+      position: relative;
+    }
+
+    .futuristic-table tr:hover::after {
+      content: '';
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      right: -2px;
+      bottom: -2px;
+      background: linear-gradient(45deg, 
+        rgba(210, 180, 140, 0.1) 0%,
+        rgba(255, 215, 0, 0.08) 25%,
+        rgba(139, 69, 19, 0.1) 50%,
+        rgba(255, 215, 0, 0.08) 75%,
+        rgba(210, 180, 140, 0.1) 100%);
+      border-radius: 8px;
+      z-index: -1;
+      animation: ultraModernGlow 2s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    /* Ultra-modern glow animation */
+    @keyframes ultraModernGlow {
+      0% { 
+        opacity: 0.3; 
+        transform: scale(1);
+        filter: blur(1px);
+      }
+      100% { 
+        opacity: 0.6; 
+        transform: scale(1.005);
+        filter: blur(0px);
+      }
+    }
+
+    .table-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 16px;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #999;
+      border: 1px solid rgba(139, 69, 19, 0.1);
+    }
+    @keyframes holographicFlow {
+      0%, 100% { background-position: 0% 50%; }
+      25% { background-position: 100% 50%; }
+      50% { background-position: 100% 100%; }
+      75% { background-position: 0% 100%; }
+    }
+
+    .table-container:hover .holographic-effect {
+      opacity: 0.4;
+    }
+
+    /* Loading animation */
+    .loading-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 15, 15, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .loading-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .loading-spinner {
+      width: 35px;
+      height: 35px;
+      border: 3px solid rgba(139, 69, 19, 0.3);
+      border-top: 3px solid #d2b48c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Professional synthesis cards */
+    .synthesis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+      margin-top: 48px;
+    }
+    
+    .synthesis-card {
+      /* Professional card styling */
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      border: 1px solid rgba(139, 69, 19, 0.2);
+      border-radius: 8px;
+      padding: 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .synthesis-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(139, 69, 19, 0.2);
+      border-color: rgba(139, 69, 19, 0.4);
+    }
+    
+    .synthesis-card h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: #f0f0f0;
+    }
+    
+    .synthesis-card p {
+      color: #b8b8b8;
+      font-size: 0.95rem;
+    }
+    
+    /* Professional timeline section */
+    .timeline-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      border-radius: 12px;
+      padding: 40px 32px;
+      border: 1px solid rgba(139, 69, 19, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+    
+    .timeline-frame {
+      border: 1px solid rgba(139, 69, 19, 0.3);
+      border-radius: 8px;
+      overflow: hidden;
+      height: 600px;
+      margin-top: 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    /* Professional conclusion section */
+    .conclusion-section {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+      border-radius: 12px;
+      padding: 50px 40px;
+      text-align: center;
+      border: 1px solid rgba(139, 69, 19, 0.2);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+    
+    .conclusion-section h2 {
+      font-size: 2.25rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      color: #f0f0f0;
+    }
+    
+    .conclusion-section p {
+      font-size: 1.1rem;
+      color: #b8b8b8;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 0 20px;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      nav {
+        gap: 16px;
+      }
+      
+      main {
+        padding: 0 20px;
+      }
+      
+      .hero h2 {
+        font-size: 2.5rem;
+      }
+      
+      .section-header h2 {
+        font-size: 2rem;
+      }
+      
+      .table-container {
+        padding: 20px;
+        overflow-x: auto;
+      }
+      
+      .synthesis-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .timeline-section,
+      .conclusion-section {
+        padding: 32px 20px;
+      }
+    }
+    
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    /* Professional selection styling */
+    ::selection {
+      background: rgba(139, 69, 19, 0.3);
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Régimes Totalitaires</h1>
+      <nav>
+        <a href="#tableau">Tableau comparatif</a>
+        <a href="#frise">Frise chronologique</a>
+        <a href="#conclusion">Conclusion</a>
+        <a href="quiz_totalitarismes.html">Quiz</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Added hero section for better visual impact -->
+    <section class="hero">
+      <h2>Les régimes totalitaires</h2>
+      <p>Une analyse pour mettre en parallèle les systèmes nazis, staliniens et fascistes</p>
+    </section>
+
+    <section id="tableau">
+      <div class="section-header">
+        <h2>Tableau comparatif</h2>
+        <p>Analyse entre les régimes nazis, staliniens et fascistes selon différents critères </p>
+      </div>
+      
+      <div class="table-container">
+        <!-- Adding futuristic interactive controls -->
+        <div class="holographic-effect"></div>
+        <div class="loading-overlay" id="loadingOverlay">
+          <div class="loading-spinner"></div>
+        </div>
+        
+        <div class="table-controls">
+          <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="searchInput" placeholder="Rechercher dans le tableau...">
+          </div>
+          <div class="filter-buttons">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="nazi">Nazi</button>
+            <button class="filter-btn" data-filter="stalinien">Stalinien</button>
+            <button class="filter-btn" data-filter="fasciste">Fasciste</button>
+          </div>
+        </div>
+
+        <table class="futuristic-table" id="comparisonTable">
+          <thead>
+            <tr>
+              <th data-sort="criteria">Critères</th>
+              <th data-sort="nazi">Nazisme</th>
+              <th data-sort="stalinien">Stalinisme</th>
+              <th data-sort="fasciste">Fascisme</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="regime-nazi">
+              <td><strong>Idéologie défendue</strong></td>
+              <td>Racisme, antisémitisme, égalité des droits du peuple allemand par rapport aux autres nations et la suppression du traité de Versailles suprématie aryenne</td>
+              <td>Communisme, grande agriculture, capitalisme et industrialisation</td>
+              <td>Une politique d'autarcie (autosuffisance économique)</td>
+            </tr>
+            <tr class="regime-stalinien">
+              <td><strong>Homme nouveau</strong></td>
+              <td>Arien fort, travailler, esprit national doit être appris à l'école, pour être citoyen, il faut être de sang allemand</td>
+              <td>Staline et son régime, création d'une nouvelle humanité et propagande d'un leader bienveillant qui assure le bonheur et l'avenir des enfants</td>
+              <td>Italien viril, loyal au Duce, loyal au Fascisme (éducation, vivre dans l'esprit historique créé par la révolution fasciste)</td>
+            </tr>
+            <tr class="regime-fasciste">
+              <td><strong>Ennemis désignés</strong></td>
+              <td>Juifs (Ne peuvent être citoyens. Mariages et relations extraconjugales avec des citoyens de sang allemand sont interdites), opposants politiques (Instauration d'un parti unique (le parti nazi). L'article 2 de la loi instaure des peines de prison pour ceux qui collaborent au maintien ou tentent de créer de nouveaux partis), La République de Weimar (Considérée comme responsable de la défaite de 1918. Combattue en utilisant "les armes de la démocratie" pour la "paralyser" et la "révolutionner" légalement.)</td>
+              <td>Les capitalistes et opposants politiques, koulaks, antisoviétiques ou contre-révolutionnaire, propagande terroriste contre les dirigeants du parti communiste, Les prisonniers des camps sont considérés comme des « ennemis imaginaires et inventés »</td>
+              <td>Communistes, opposants politiques au fascisme, l'interdiction de la grève dans les services publics</td>
+            </tr>
+            <tr class="regime-nazi">
+              <td><strong>Traitement des ennemis</strong></td>
+              <td>Déportations, ghettos, camps de concentration, Shoah</td>
+              <td>Goulags, purges, exécutions</td>
+              <td>Arrestations, répressions, exécutions</td>
+            </tr>
+            <tr class="regime-stalinien">
+              <td><strong>Encadrement des masses</strong></td>
+              <td>Propagande (cinéma est un outil privilégié, visant à éduquer le peuple), Hitlerjugend (encadrement de la jeunesse), contrôle total Le culte de la personnalité du Führer (Hitler), éducation</td>
+              <td>Propagande et le culte de la personnalité de Staline (Pravda), organisations de masse, surveillance, L'intimidation et la violence par la police politique (Tcheka)</td>
+              <td>Propagande, jeunesse fasciste (Opera Nazionale Balilla), Contrôle économique, Discipline et Hiérarchie</td>
+            </tr>
+            <tr class="regime-fasciste">
+              <td><strong>Violence</strong></td>
+              <td>Milices SS, Gestapo, extermination (Lois antisémites, parti unique, Arrestations et déportations), violences de masses (la Nuit de Cristal)</td>
+              <td>Police politique (NKVD), Grande Terreur, Les camps de travail (Goulags), la torture pendant les interrogatoires, les fosses communes</td>
+              <td>Faisceaux italiens de combat, La préparation des jeunesses fascistes au combat, violences politiques, Le PNF agit pour interdire la grève dans les services publics</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="table-stats">
+          <span id="tableStats">6 lignes affichées sur 6 total</span>
+          <span id="searchStats"></span>
+        </div>
+      </div>
+
+      <!-- Modern synthesis cards instead of simple paragraphs -->
+      <div class="synthesis-grid">
+        <div class="synthesis-card">
+          <h4>Grande Terreur (URSS, 1936-1938)</h4>
+          <p>Vague de purges et d'arrestations orchestrées par Staline, faisant des millions de victimes parmi les dirigeants du parti, l'armée et la population civile.</p>
+        </div>
+        <div class="synthesis-card">
+          <h4>Nuit de Cristal (Allemagne, 1938)</h4>
+          <p> <br> Dans la nuit du 9 au 10 novembre 1938, le parti nazi déclenche une série de pogroms contre la population juive, connue sous le nom de « Nuit de Cristal ». Vandalisme et violences se déchaînent.</br>
+<br>Le bilan est lourd : une centaine de Juifs tués, des milliers blessés, environ 270 synagogues incendiées et plus de 8 000 magasins pillés et détruits. </br>
+<br>Dans les semaines qui suivent, plusieurs milliards de Reichsmarks (soit environ 40 milliards d’euros actuels) sont volés aux Juifs. Plus de 30 000 d’entre eux sont déportés dans des camps de concentration, où entre 2 000 et 2 500 périssent. On recense également des milliers de suicides après ces pogroms.</br></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="frise">
+      <div class="section-header">
+        <h2>Frise chronologique interactive</h2>
+        <p>Explorez les grands événements des régimes totalitaires à travers une timeline interactive</p>
+      </div>
+      
+      <div class="timeline-section">
+        <div class="timeline-frame">
+          <iframe src="frise_interactive_totalitarismes.html" width="100%" height="100%" style="border:0"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="conclusion-section">
+        <h2>Réflexions historiques</h2>
+        <p>conclusion.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Adding JavaScript for interactive functionality -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const searchInput = document.getElementById('searchInput');
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const table = document.getElementById('comparisonTable');
+      const tableStats = document.getElementById('tableStats');
+      const searchStats = document.getElementById('searchStats');
+      const loadingOverlay = document.getElementById('loadingOverlay');
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      
+      let currentFilter = 'all';
+      let currentSearch = '';
+      
+      const originalCellContent = new Map();
+      
+      // Initialize original content storage
+      rows.forEach((row, rowIndex) => {
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, cellIndex) => {
+          originalCellContent.set(`${rowIndex}-${cellIndex}`, cell.innerHTML);
+        });
+      });
+
+      // Search functionality
+      searchInput.addEventListener('input', function() {
+        currentSearch = this.value.toLowerCase().trim();
+        showLoading();
+        setTimeout(() => {
+          applySearch();
+          hideLoading();
+        }, 300);
+      });
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = this.dataset.filter;
+          showLoading();
+          setTimeout(() => {
+            applyColumnFilter();
+            hideLoading();
+          }, 200);
+        });
+      });
+
+      // Sort functionality
+      const headers = table.querySelectorAll('th[data-sort]');
+      headers.forEach(header => {
+        header.addEventListener('click', function() {
+          const sortBy = this.dataset.sort;
+          sortTable(sortBy);
+        });
+      });
+
+      function applyColumnFilter() {
+        const allHeaders = table.querySelectorAll('th');
+        const allCells = table.querySelectorAll('td');
+        
+        // Reset all columns to visible
+        allHeaders.forEach(header => header.style.display = '');
+        allCells.forEach(cell => cell.style.display = '');
+        
+        if (currentFilter === 'all') {
+          // Show all columns
+          updateColumnStats('Toutes les colonnes affichées');
+        } else {
+          // Hide specific columns based on filter
+          const columnMap = {
+            'nazi': [0, 1], // Show criteria + nazisme columns
+            'stalinien': [0, 2], // Show criteria + stalinisme columns  
+            'fasciste': [0, 3] // Show criteria + fascisme columns
+          };
+          
+          const columnsToShow = columnMap[currentFilter] || [0, 1, 2, 3];
+          
+          // Hide headers
+          allHeaders.forEach((header, index) => {
+            if (!columnsToShow.includes(index)) {
+              header.style.display = 'none';
+            }
+          });
+          
+          // Hide cells in each row
+          rows.forEach(row => {
+            const cells = row.querySelectorAll('td');
+            cells.forEach((cell, index) => {
+              if (!columnsToShow.includes(index)) {
+                cell.style.display = 'none';
+              }
+            });
+          });
+          
+          const filterNames = {
+            'nazi': 'Nazisme uniquement',
+            'stalinien': 'Stalinisme uniquement', 
+            'fasciste': 'Fascisme uniquement'
+          };
+          updateColumnStats(`Filtre actif: ${filterNames[currentFilter]}`);
+        }
+        
+        // Reapply search if active
+        if (currentSearch) {
+          applySearch();
+        }
+      }
+
+      function applySearch() {
+        let visibleCount = 0;
+        let highlightedTerms = [];
+
+        rows.forEach((row, rowIndex) => {
+          const visibleCells = Array.from(row.querySelectorAll('td')).filter(cell => 
+            cell.style.display !== 'none'
+          );
+          
+          if (currentSearch) {
+            const rowText = visibleCells.map(cell => cell.textContent.toLowerCase()).join(' ');
+            const hasMatch = rowText.includes(currentSearch);
+            
+            if (hasMatch) {
+              row.style.display = '';
+              visibleCount++;
+              highlightSearchTerms(row, currentSearch, rowIndex);
+              if (!highlightedTerms.includes(currentSearch)) {
+                highlightedTerms.push(currentSearch);
+              }
+            } else {
+              row.style.display = 'none';
+              removeHighlights(row, rowIndex);
+            }
+          } else {
+            row.style.display = '';
+            visibleCount++;
+            removeHighlights(row, rowIndex);
+          }
+        });
+
+        updateSearchStats(visibleCount, highlightedTerms);
+      }
+
+      function highlightSearchTerms(row, term, rowIndex) {
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, cellIndex) => {
+          // Only highlight visible cells
+          if (cell.style.display !== 'none') {
+            // Restore original content first
+            const originalContent = originalCellContent.get(`${rowIndex}-${cellIndex}`);
+            if (originalContent) {
+              cell.innerHTML = originalContent;
+            }
+            
+            const text = cell.textContent.toLowerCase();
+            if (text.includes(term)) {
+              cell.classList.add('highlight');
+              
+              // Create highlighted version
+              const regex = new RegExp(`(${escapeRegExp(term)})`, 'gi');
+              const highlightedHTML = cell.innerHTML.replace(regex, '<mark style="background: rgba(210, 180, 140, 0.4); color: #000; padding: 1px 3px; border-radius: 2px; font-weight: 600;">$1</mark>');
+              cell.innerHTML = highlightedHTML;
+            }
+          }
+        });
+      }
+
+      function removeHighlights(row, rowIndex) {
+        const cells = row.querySelectorAll('td');
+        cells.forEach((cell, cellIndex) => {
+          cell.classList.remove('highlight');
+          // Restore original content
+          const originalContent = originalCellContent.get(`${rowIndex}-${cellIndex}`);
+          if (originalContent) {
+            cell.innerHTML = originalContent;
+          }
+        });
+      }
+
+      function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      }
+
+      function updateColumnStats(message) {
+        if (!currentSearch) {
+          searchStats.textContent = message;
+        }
+      }
+
+      function updateSearchStats(visibleCount, highlightedTerms) {
+        tableStats.textContent = `${visibleCount} lignes affichées sur ${rows.length} total`;
+        
+        if (currentSearch && highlightedTerms.length > 0) {
+          searchStats.textContent = `Recherche: "${currentSearch}" - ${visibleCount} résultats trouvés`;
+        } else if (currentFilter !== 'all') {
+          const filterNames = {
+            'nazi': 'Nazisme uniquement',
+            'stalinien': 'Stalinisme uniquement', 
+            'fasciste': 'Fascisme uniquement'
+          };
+          searchStats.textContent = `Filtre actif: ${filterNames[currentFilter]}`;
+        } else {
+          searchStats.textContent = '';
+        }
+      }
+
+      function sortTable(column) {
+        showLoading();
+        setTimeout(() => {
+          const tbody = table.querySelector('tbody');
+          const columnIndex = {
+            'criteria': 0,
+            'nazi': 1,
+            'stalinien': 2, 
+            'fasciste': 3
+          }[column] || 0;
+          
+          const sortedRows = [...rows].sort((a, b) => {
+            const aText = a.cells[columnIndex]?.textContent.trim() || '';
+            const bText = b.cells[columnIndex]?.textContent.trim() || '';
+            return aText.localeCompare(bText, 'fr', { numeric: true });
+          });
+          
+          tbody.innerHTML = '';
+          sortedRows.forEach(row => tbody.appendChild(row));
+          
+          // Reapply current filter and search
+          applyColumnFilter();
+          hideLoading();
+        }, 300);
+      }
+
+      function showLoading() {
+        loadingOverlay.classList.add('active');
+      }
+
+      function hideLoading() {
+        loadingOverlay.classList.remove('active');
+      }
+
+      // Add enhanced hover effects
+      rows.forEach(row => {
+        row.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.005)';
+          this.style.zIndex = '5';
+        });
+        
+        row.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+          this.style.zIndex = '1';
+        });
+      });
+
+      applyColumnFilter();
+      
+      // Add keyboard shortcuts
+      document.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'f') {
+          e.preventDefault();
+          searchInput.focus();
+        }
+        
+        if (e.key === 'Escape' && document.activeElement === searchInput) {
+          searchInput.value = '';
+          currentSearch = '';
+          applySearch();
+        }
+      });
+
+      // Smooth animations observer
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.animationDelay = '0s';
+            entry.target.style.animationPlayState = 'running';
+          }
+        });
+      }, observerOptions);
+      
+      document.querySelectorAll('section, .synthesis-card').forEach(el => {
+        observer.observe(el);
+      });
+    });
+  </script>
+
+  <footer style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 16px; text-align: center; border-top: 1px solid #333; color: #888; font-size: 0.85rem;">
+    <p style="margin: 0; font-weight: 500;">&copy; 2025-2026 Rudy Nancey & Loic Ducret.</p>
+    <p style="margin: 0; font-size: 0.75rem; color: #666;">CSS créé par IA .</p>
+  </footer>
+</body>
+</html>

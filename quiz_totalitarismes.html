@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz - Régimes totalitaires</title>
+  <style>
+    :root {
+      --bg-primary: #0f0f0f;
+      --bg-secondary: #1a1a1a;
+      --bg-card: #2a2a2a;
+      --text-primary: #e8e8e8;
+      --text-secondary: #b8b8b8;
+      --accent-primary: #d2b48c;
+      --accent-secondary: #8b4513;
+      --success: #10b981;
+      --error: #ef4444;
+      --border: rgba(139, 69, 19, 0.2);
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: 
+        linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 25%, #141414 50%, #1a1a1a 75%, #0f0f0f 100%),
+        radial-gradient(circle at 20% 80%, rgba(139, 69, 19, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(25, 25, 112, 0.06) 0%, transparent 50%);
+      background-size: 400% 400%, 100% 100%, 100% 100%;
+      animation: subtleShift 30s ease infinite;
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    @keyframes subtleShift {
+      0%, 100% { background-position: 0% 50%, 0% 0%, 100% 100%; }
+      50% { background-position: 100% 50%, 50% 50%, 0% 0%; }
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(90deg, rgba(139, 69, 19, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(139, 69, 19, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      opacity: 0.3;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    header {
+      background: 
+        linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(35, 35, 35, 0.9) 100%),
+        linear-gradient(45deg, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+      backdrop-filter: blur(15px) saturate(150%);
+      border-bottom: 2px solid rgba(139, 69, 19, 0.3);
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px var(--shadow);
+    }
+
+    .header-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 1.75rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 50%, #c0c0c0 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: subtleTextShimmer 8s ease-in-out infinite;
+    }
+
+    @keyframes subtleTextShimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    nav a {
+      color: #d1d1d1;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    nav a:hover {
+      color: var(--accent-primary);
+      background: rgba(139, 69, 19, 0.15);
+      transform: translateY(-1px);
+    }
+
+    main {
+      padding: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .quiz-container {
+      background: 
+        linear-gradient(135deg, rgba(20, 20, 20, 0.95) 0%, rgba(35, 35, 35, 0.9) 100%),
+        linear-gradient(45deg, rgba(139, 69, 19, 0.05) 0%, rgba(25, 25, 112, 0.03) 100%);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.5),
+        0 0 50px rgba(139, 69, 19, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(15px) saturate(150%);
+    }
+
+    .quiz-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    }
+
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .quiz-header h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin: 0 0 1rem 0;
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 30%, #8b4513 70%, #c0c0c0 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.2;
+      animation: professionalGlow 10s ease-in-out infinite;
+    }
+
+    @keyframes professionalGlow {
+      0%, 100% { 
+        background-position: 0% 50%;
+        filter: brightness(1);
+      }
+      50% { 
+        background-position: 100% 50%;
+        filter: brightness(1.1);
+      }
+    }
+
+    .quiz-header p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .quiz-progress {
+      background: var(--bg-secondary);
+      border-radius: 12px;
+      height: 12px;
+      margin: 2rem 0;
+      overflow: hidden;
+      position: relative;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .quiz-progress-bar {
+      background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+      height: 100%;
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quiz-progress-bar::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      animation: shimmer 2s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    #questionCounter {
+      color: var(--text-secondary);
+      font-weight: 600;
+      margin-top: 1rem;
+    }
+
+    .question-container {
+      margin-bottom: 3rem;
+    }
+
+    .question {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      color: var(--text-primary);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .answers {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .answer {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #404040 100%);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      font-size: 1rem;
+      color: var(--text-primary);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .answer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .answer:hover::before {
+      left: 100%;
+    }
+
+    .answer:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(139, 69, 19, 0.1);
+    }
+
+    .answer.selected {
+      border-color: var(--accent-primary);
+      background: linear-gradient(135deg, rgba(139, 69, 19, 0.1) 0%, rgba(210, 180, 140, 0.1) 100%);
+      box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .answer.correct {
+      border-color: var(--success);
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+      color: #6ee7b7;
+      animation: correctPulse 0.6s ease;
+    }
+
+    .answer.incorrect {
+      border-color: var(--error);
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1) 0%, rgba(220, 38, 38, 0.1) 100%);
+      color: #fca5a5;
+      animation: incorrectShake 0.6s ease;
+    }
+
+    @keyframes correctPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.02); }
+    }
+
+    @keyframes incorrectShake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-4px); }
+      75% { transform: translateX(4px); }
+    }
+
+    .quiz-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      gap: 1rem;
+    }
+
+    .btn {
+      color: #d1d1d1;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      position: relative;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      min-width: 120px;
+    }
+
+    .btn:hover {
+      color: var(--accent-primary);
+      background: rgba(139, 69, 19, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none !important;
+    }
+
+    .btn-primary {
+      background: rgba(139, 69, 19, 0.15);
+      color: var(--accent-primary);
+      border: 1px solid rgba(139, 69, 19, 0.3);
+    }
+
+    .btn-primary:hover {
+      color: var(--accent-primary);
+      background: rgba(139, 69, 19, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:hover {
+      color: var(--accent-primary);
+      background: rgba(139, 69, 19, 0.15);
+      transform: translateY(-1px);
+    }
+
+    .results {
+      text-align: center;
+      padding: 3rem;
+      animation: fadeInUp 0.6s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .results h2 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 30%, #8b4513 70%, #c0c0c0 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: professionalGlow 10s ease-in-out infinite;
+    }
+
+    .score {
+      font-size: 4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #f0f0f0 0%, #d2b48c 30%, #8b4513 70%, #c0c0c0 100%);
+      background-size: 300% 300%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin: 2rem 0;
+      animation: scoreCount 1s ease, professionalGlow 10s ease-in-out infinite;
+    }
+
+    .score-message {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .explanation {
+      background: linear-gradient(135deg, var(--bg-secondary) 0%, #404040 100%);
+      border-left: 4px solid var(--accent-primary);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+      border-radius: 0 12px 12px 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--text-secondary);
+      animation: slideIn 0.4s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+
+      .header-content {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      main {
+        padding: 1rem;
+      }
+
+      .quiz-container {
+        padding: 2rem;
+        border-radius: 16px;
+      }
+
+      .quiz-header h2 {
+        font-size: 2rem;
+      }
+
+      .question {
+        font-size: 1.1rem;
+      }
+
+      .quiz-buttons {
+        flex-direction: column;
+      }
+
+      .score {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-content">
+      <h1>Quiz - Régimes totalitaires</h1>
+      <nav>
+        <a href="index.html">Retour au tableau</a>
+        <a href="frise_interactive_totalitarismes.html">Frise chronologique</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="quiz-container">
+      <div class="quiz-header">
+        <h2>Testez vos connaissances</h2>
+        <p>Quiz sur les régimes totalitaires du XXe siècle</p>
+        <div class="quiz-progress">
+          <div class="quiz-progress-bar" id="progressBar"></div>
+        </div>
+        <p id="questionCounter">Question 1 sur 10</p>
+      </div>
+
+      <div id="quizContent">
+        <div class="question-container">
+          <div class="question" id="questionText"></div>
+          <div class="answers" id="answersContainer"></div>
+          <div id="explanation" class="explanation hidden"></div>
+        </div>
+
+        <div class="quiz-buttons">
+          <button class="btn btn-secondary" id="prevBtn" onclick="previousQuestion()">Précédent</button>
+          <button class="btn btn-primary" id="nextBtn" onclick="nextQuestion()" disabled>Suivant</button>
+        </div>
+      </div>
+
+      <div id="results" class="results hidden">
+        <h2>Quiz terminé !</h2>
+        <div class="score" id="finalScore"></div>
+        <div class="score-message" id="scoreMessage"></div>
+        <button class="btn btn-primary" onclick="restartQuiz()">Recommencer</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const questions = [
+      {
+        question: "Quel événement marque le début de la persécution systématique des Juifs en Allemagne nazie ?",
+        answers: ["La Nuit de Cristal (1938)", "L'incendie du Reichstag (1933)", "Les lois de Nuremberg (1935)", "La conférence de Wannsee (1942)"],
+        correct: 0,
+        explanation: "La Nuit de Cristal en novembre 1938 a marqué une escalade majeure dans la persécution des Juifs, avec la destruction de synagogues et de commerces juifs."
+      },
+      {
+        question: "Quelle était la période de la Grande Terreur en URSS sous Staline ?",
+        answers: ["1929-1932", "1936-1938", "1939-1941", "1945-1953"],
+        correct: 1,
+        explanation: "La Grande Terreur s'est déroulée de 1936 à 1938, période de purges massives orchestrées par Staline."
+      },
+      {
+        question: "Comment Mussolini est-il arrivé au pouvoir en Italie ?",
+        answers: ["Par un coup d'État militaire", "Par la Marche sur Rome (1922)", "Par des élections démocratiques", "Par une révolution populaire"],
+        correct: 1,
+        explanation: "Mussolini a pris le pouvoir après la Marche sur Rome en octobre 1922, forçant le roi à le nommer Premier ministre."
+      },
+      {
+        question: "Quel était l'objectif principal de l'idéologie nazie concernant la race ?",
+        answers: ["L'égalité raciale", "La suprématie aryenne", "Le multiculturalisme", "L'assimilation culturelle"],
+        correct: 1,
+        explanation: "L'idéologie nazie prônait la suprématie de la race aryenne et l'antisémitisme comme piliers fondamentaux."
+      },
+      {
+        question: "Qui étaient les 'koulaks' dans l'URSS de Staline ?",
+        answers: ["Des opposants politiques", "Des paysans aisés", "Des intellectuels", "Des ouvriers d'usine"],
+        correct: 1,
+        explanation: "Les koulaks étaient des paysans aisés considérés comme des ennemis de classe par le régime stalinien."
+      },
+      {
+        question: "Quelle organisation encadrait la jeunesse dans l'Italie fasciste ?",
+        answers: ["Hitlerjugend", "Opera Nazionale Balilla", "Komsomol", "Gioventù Italiana"],
+        correct: 1,
+        explanation: "L'Opera Nazionale Balilla était l'organisation fasciste italienne chargée de l'encadrement et de l'endoctrinement de la jeunesse."
+      },
+      {
+        question: "Quel était le nom de la police politique de Staline ?",
+        answers: ["Gestapo", "NKVD", "SS", "Tcheka"],
+        correct: 1,
+        explanation: "Le NKVD était la police politique soviétique sous Staline, responsable de la répression et des purges."
+      },
+      {
+        question: "En quelle année Hitler a-t-il été nommé chancelier d'Allemagne ?",
+        answers: ["1932", "1933", "1934", "1935"],
+        correct: 1,
+        explanation: "Hitler a été nommé chancelier le 30 janvier 1933, marquant le début du régime nazi en Allemagne."
+      },
+      {
+        question: "Quel pays l'Italie fasciste a-t-elle envahi en 1935 ?",
+        answers: ["L'Albanie", "La Grèce", "L'Éthiopie", "La Yougoslavie"],
+        correct: 2,
+        explanation: "L'Italie fasciste a envahi l'Éthiopie en octobre 1935, défiant la Société des Nations."
+      },
+      {
+        question: "Que signifiait 'l'homme nouveau' dans l'idéologie stalinienne ?",
+        answers: ["Un citoyen éduqué", "Une nouvelle humanité communiste", "Un travailleur industriel", "Un soldat loyal"],
+        correct: 1,
+        explanation: "L'idéologie stalinienne prônait la création d'une nouvelle humanité communiste, transformée par l'éducation et la propagande."
+      }
+    ];
+
+    let currentQuestion = 0;
+    let selectedAnswer = null;
+    let score = 0;
+    let answered = false;
+
+    function loadQuestion() {
+      const question = questions[currentQuestion];
+      document.getElementById('questionText').textContent = question.question;
+      document.getElementById('questionCounter').textContent = `Question ${currentQuestion + 1} sur ${questions.length}`;
+      
+      const answersContainer = document.getElementById('answersContainer');
+      answersContainer.innerHTML = '';
+      
+      question.answers.forEach((answer, index) => {
+        const answerDiv = document.createElement('div');
+        answerDiv.className = 'answer';
+        answerDiv.textContent = answer;
+        answerDiv.onclick = () => selectAnswer(index);
+        answersContainer.appendChild(answerDiv);
+      });
+      
+      document.getElementById('explanation').classList.add('hidden');
+      document.getElementById('prevBtn').disabled = currentQuestion === 0;
+      document.getElementById('nextBtn').disabled = true;
+      document.getElementById('nextBtn').textContent = currentQuestion === questions.length - 1 ? 'Terminer' : 'Suivant';
+      
+      selectedAnswer = null;
+      answered = false;
+      updateProgress();
+    }
+
+    function selectAnswer(index) {
+      if (answered) return;
+      
+      selectedAnswer = index;
+      const answers = document.querySelectorAll('.answer');
+      
+      answers.forEach(answer => answer.classList.remove('selected'));
+      answers[index].classList.add('selected');
+      
+      document.getElementById('nextBtn').disabled = false;
+    }
+
+    function nextQuestion() {
+      if (!answered && selectedAnswer !== null) {
+        // Révéler la réponse
+        const question = questions[currentQuestion];
+        const answers = document.querySelectorAll('.answer');
+        
+        answers.forEach((answer, index) => {
+          if (index === question.correct) {
+            answer.classList.add('correct');
+          } else if (index === selectedAnswer && index !== question.correct) {
+            answer.classList.add('incorrect');
+          }
+        });
+        
+        if (selectedAnswer === question.correct) {
+          score++;
+        }
+        
+        // Afficher l'explication
+        const explanationDiv = document.getElementById('explanation');
+        explanationDiv.textContent = question.explanation;
+        explanationDiv.classList.remove('hidden');
+        
+        answered = true;
+        document.getElementById('nextBtn').textContent = currentQuestion === questions.length - 1 ? 'Voir les résultats' : 'Question suivante';
+        return;
+      }
+      
+      if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        loadQuestion();
+      } else {
+        showResults();
+      }
+    }
+
+    function previousQuestion() {
+      if (currentQuestion > 0) {
+        currentQuestion--;
+        loadQuestion();
+      }
+    }
+
+    function updateProgress() {
+      const progress = ((currentQuestion + 1) / questions.length) * 100;
+      document.getElementById('progressBar').style.width = progress + '%';
+    }
+
+    function showResults() {
+      document.getElementById('quizContent').classList.add('hidden');
+      document.getElementById('results').classList.remove('hidden');
+      
+      const percentage = Math.round((score / questions.length) * 100);
+      document.getElementById('finalScore').textContent = `${score}/${questions.length} (${percentage}%)`;
+      
+      let message = '';
+      if (percentage >= 90) {
+        message = 'Excellent ! Vous maîtrisez parfaitement le sujet des régimes totalitaires.';
+      } else if (percentage >= 70) {
+        message = 'Très bien ! Vous avez de bonnes connaissances sur les régimes totalitaires.';
+      } else if (percentage >= 50) {
+        message = 'Pas mal ! Il y a encore quelques points à approfondir.';
+      } else {
+        message = 'Il serait bon de réviser le cours sur les régimes totalitaires.';
+      }
+      
+      document.getElementById('scoreMessage').textContent = message;
+    }
+
+    function restartQuiz() {
+      currentQuestion = 0;
+      score = 0;
+      selectedAnswer = null;
+      answered = false;
+      
+      document.getElementById('quizContent').classList.remove('hidden');
+      document.getElementById('results').classList.add('hidden');
+      
+      loadQuestion();
+    }
+
+    // Initialiser le quiz
+    loadQuestion();
+  </script>
+<footer style="background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); padding: 16px; text-align: center; border-top: 1px solid #333; color: #888; font-size: 0.85rem;">
+    <p style="margin: 0; font-weight: 500;">&copy; 2025-2026 Rudy Nancey & Loic Ducret.</p>
+    <p style="margin: 0; font-size: 0.75rem; color: #666;">CSS créé par IA.</p>
+</footer>
+</body>
+</html>
